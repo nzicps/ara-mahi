@@ -6,6 +6,10 @@ app = Flask(__name__)
 def db():
     return psycopg2.connect(dbname="ara_mahi", user="postgres", host="localhost")
 
+@app.route("/")
+def home():
+    return "✅ Ara Mahi API is alive. Use /api/jobs or /api/match"
+    
 @app.route("/api/jobs")
 def jobs():
     conn = db()
