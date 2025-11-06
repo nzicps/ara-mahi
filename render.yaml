@@ -4,10 +4,11 @@
     env: python
     region: oregon
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn src.api:app --bind 0.0.0.0:\
+    startCommand: gunicorn src.api:app --bind 0.0.0.0:$PORT
 
-  - type: cron
-    name: ara-mahi-refresh-jobs
+  - type: web
+    name: ara-mahi-ui
+    env: python
     region: oregon
-    schedule: "0 */6 * * *"   # Every 6 hours
-    command: python src/jobs/load_jobs_all.py
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn src.ui_app:app --bind 0.0.0.0:$PORT
