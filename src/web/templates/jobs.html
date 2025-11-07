@@ -1,0 +1,11 @@
+﻿<!DOCTYPE html><html><body><h1>Jobs</h1>
+{% for job in jobs %}
+<p><b>{{job.title}}</b> @ {{job.company}} ({{job.location}})
+<br>{{job.salary_min}} - {{job.salary_max}}
+<form action="/save" method="POST">
+<input type="hidden" name="url" value="{{job.url}}">
+<button>Save Job</button>
+</form>
+</p><hr>
+{% endfor %}
+</body></html>

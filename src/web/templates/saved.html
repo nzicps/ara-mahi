@@ -1,0 +1,7 @@
+﻿<!DOCTYPE html><html><body><h1>Saved Jobs ❤️</h1>
+{% for job in jobs %}
+<p><b>{{job.title}}</b> @ {{job.company}} ({{job.location}})
+<br>{{job.salary_min}} - {{job.salary_max}}
+<br><a href="{{job.url}}" target="_blank">Apply</a></p><hr>
+{% endfor %}
+</body></html>

@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head><title>Top Matches</title></head>
+<body>
+<h1>🔥 Top Job Matches</h1>
+
+{% for job in jobs %}
+<p>
+<b>{{ job.title }}</b> @ {{ job.company }} ({{ job.location }})
+<br>Match Score: {{ job.score }}
+<br><a href="{{ job.url }}" target="_blank">Apply</a>
+</p>
+<hr>
+{% endfor %}
+
+</body>
+</html>
