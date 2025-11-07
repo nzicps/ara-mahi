@@ -1,11 +1,17 @@
-﻿<!DOCTYPE html><html><body><h1>Jobs</h1>
+﻿<!DOCTYPE html><html><body style="font-family:sans-serif;padding:20px;">
+<h2>Job Listings</h2>
 {% for job in jobs %}
-<p><b>{{job.title}}</b> @ {{job.company}} ({{job.location}})
-<br>{{job.salary_min}} - {{job.salary_max}}
+<div style="margin-bottom:20px;">
+<b>{{job.title}}</b> @ {{job.company}} <br>
+{{job.location}} — ${{job.salary_min}} to {{job.salary_max}}<br>
+<a href="{{job.url}}" target="_blank">Apply</a>
 <form action="/save" method="POST">
 <input type="hidden" name="url" value="{{job.url}}">
-<button>Save Job</button>
+<input type="hidden" name="phone" value="{{phone}}">
+<button>❤️ Save</button>
 </form>
-</p><hr>
+<hr>
+</div>
 {% endfor %}
+<a href="/saved?phone={{phone}}">View Saved ❤️</a>
 </body></html>

@@ -1,7 +1,12 @@
-﻿<!DOCTYPE html><html><body><h1>Saved Jobs ❤️</h1>
+﻿<!DOCTYPE html><html><body style="font-family:sans-serif;padding:20px;">
+<h2>Saved Jobs ❤️</h2>
 {% for job in jobs %}
-<p><b>{{job.title}}</b> @ {{job.company}} ({{job.location}})
-<br>{{job.salary_min}} - {{job.salary_max}}
-<br><a href="{{job.url}}" target="_blank">Apply</a></p><hr>
+<div style="margin-bottom:20px;">
+<b>{{job.title}}</b> @ {{job.company}}<br>
+{{job.location}} — ${{job.salary_min}} to {{job.salary_max}}<br>
+<a href="{{job.url}}" target="_blank">Apply</a>
+<hr>
+</div>
 {% endfor %}
+<a href="/jobs?phone={{phone}}">← Back to jobs</a>
 </body></html>
