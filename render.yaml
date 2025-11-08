@@ -1,14 +1,6 @@
 ﻿services:
   - type: web
-    name: ara-mahi-api
+    name: ara-mahi
     env: python
-    region: oregon
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn src.api:app --bind 0.0.0.0:$PORT
-
-  - type: web
-    name: ara-mahi-ui
-    env: python
-    region: oregon
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn src.ui_app:app --bind 0.0.0.0:$PORT
+    startCommand: gunicorn src.web.app:app -b 0.0.0.0:

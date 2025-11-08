@@ -4,7 +4,7 @@ import psycopg2
 app = Flask(__name__)
 
 def db():
-    return psycopg2.connect(dbname="ara_mahi", user="postgres", host="localhost")
+    return psycopg2.connect(dbname='ara_mahi', user='postgres', password='AraMahi2025!', host='/cloudsql/nz-gas-grocery-app:australia-southeast1:ara-mahi-db')
 
 @app.route("/")
 def home():
